@@ -124,7 +124,7 @@
 
    *The quality and format of the digest depend on the configured RSS sources, SerpAPI query, aggregation settings, AI prompt, and Gmail         message template.*
 
-## ◈ 04 — Workflow Architecture
+## ◈ 04 — Workflow Preview
 
  <img src="https://res.cloudinary.com/dntdfccdk/image/upload/v1792166776/Screenshot_2026-10-16_213410_be9kvk.png" alt="AI news summarizer  serpAPI n8n " width="100%" />
 
