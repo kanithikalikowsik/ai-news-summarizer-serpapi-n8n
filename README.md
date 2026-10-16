@@ -96,35 +96,39 @@
 
 **01. Trigger the workflow**
 
-  The Schedule Trigger initiates execution based on the interval configured in n8n.
+   The Schedule Trigger initiates execution based on the interval configured in n8n.
 
 **02. Collect from RSS feeds**
 
-  The RSS nodes retrieve news items from the configured NormalTech and AIBusiness feeds.
+   The RSS nodes retrieve news items from the configured NormalTech and AIBusiness feeds.
 
 **03. Search the web with SerpAPI**
 
-  The HTTP Request node calls the configured SerpAPI endpoint to retrieve search results. The query and returned information depend on your     node settings.
+   The HTTP Request node calls the configured SerpAPI endpoint to retrieve search results. The query and returned information depend on your     node settings.
 
 **04. Merge the incoming information**
 
-  The Merge node combines items from the three incoming branches using its configured append operation.
+   The Merge node combines items from the three incoming branches using its configured append operation.
 
 **05. Aggregate the content**
 
-  The Aggregate node organizes the merged items for the next processing stage.
+   The Aggregate node organizes the merged items for the next processing stage.
 
 **06. Generate an AI summary**
 
-  The Basic LLM Chain uses the connected Google Gemini Chat Model to process the collected content according to the configured prompt.
+   The Basic LLM Chain uses the connected Google Gemini Chat Model to process the collected content according to the configured prompt.
 
 **07. Deliver the digest**
 
-  The Gmail node sends the generated message to the configured recipient.
+   The Gmail node sends the generated message to the configured recipient.
 
-  *The quality and format of the digest depend on the configured RSS sources, SerpAPI query, aggregation settings, AI prompt, and Gmail         message template.*
+   *The quality and format of the digest depend on the configured RSS sources, SerpAPI query, aggregation settings, AI prompt, and Gmail         message template.*
 
-## ◈ 04 — Technology Stack
+## ◈ 04 — Workflow Architecture
+
+ <img src="https://res.cloudinary.com/dntdfccdk/image/upload/v1792166776/Screenshot_2026-10-16_213410_be9kvk.png" alt="AI news summarizer  serpAPI n8n " width="100%" />
+
+## ◈ 05 — Technology Stack
 
   | Technology | Purpose |
   |---|---|
@@ -139,7 +143,7 @@
   | **Gmail** | Automated email delivery |
   | **Mermaid** | Workflow visualization in the README |
 
-## ◈ 05 — Setup & Configuration
+## ◈ 06 — Setup & Configuration
 
 ### Requirements
 
@@ -156,41 +160,41 @@
 
 **Step 1 — Import the workflow**
 
-  Export the workflow from n8n as a JSON file. Import that file into your own n8n workspace.
+   Export the workflow from n8n as a JSON file. Import that file into your own n8n workspace.
 
 **Step 2 — Configure the RSS feeds**
 
-  Open both RSS nodes and verify their feed URLs and any other required settings.
+   Open both RSS nodes and verify their feed URLs and any other required settings.
 
 **Step 3 — Configure SerpAPI**
 
-  Set the HTTP Request URL, query parameters, and authentication according to the SerpAPI endpoint you intend to use. Store your API key        securely rather than hardcoding it in a public workflow.
+   Set the HTTP Request URL, query parameters, and authentication according to the SerpAPI endpoint you intend to use. Store your API key        securely rather than hardcoding it in a public workflow.
 
 **Step 4 — Connect Google Gemini**
 
-  Configure the required credentials and confirm that the Basic LLM Chain uses the intended model.
+   Configure the required credentials and confirm that the Basic LLM Chain uses the intended model.
 
 **Step 5 — Review Merge and Aggregate**
 
-  Confirm that all three branches supply the expected data and that the aggregated output contains the fields needed by your AI prompt.
+   Confirm that all three branches supply the expected data and that the aggregated output contains the fields needed by your AI prompt.
 
 **Step 6 — Configure the AI prompt**
 
-  Specify the desired summary style, length, important fields, and instructions for handling missing or uncertain information.
+   Specify the desired summary style, length, important fields, and instructions for handling missing or uncertain information.
 
 **Step 7 — Configure Gmail**
 
-  Authorize Gmail and set the recipient, subject, and message body.
+   Authorize Gmail and set the recipient, subject, and message body.
 
 **Step 8 — Test before activation**
 
-  Run the workflow manually. Inspect the data at each stage, check the generated summary, and verify that the email arrives correctly.
+   Run the workflow manually. Inspect the data at each stage, check the generated summary, and verify that the email arrives correctly.
 
 **Step 9 — Enable scheduled execution**
 
-  After successful testing, activate or publish the workflow according to your n8n version and configuration.
+   After successful testing, activate or publish the workflow according to your n8n version and configuration.
 
-## ◈ 06 — Output & Expected Result
+## ◈ 07 — Output & Expected Result
 
   The intended output is an email digest containing AI-generated summaries of collected news information.
   
@@ -205,7 +209,7 @@
   
   These are suggested output fields; the actual email content depends on your implementation.
 
-## ◈ 07 — Potential Enhancements
+## ◈ 08 — Potential Enhancements
 
   The workflow can be expanded into a more capable news intelligence system:
   
@@ -220,7 +224,7 @@
   - [ ] Store processed stories in Google Sheets or a database.
   - [ ] Track previously processed URLs to avoid repeating stories.
 
-## ◈ 08 — Security & Responsible AI
+## ◈ 09 — Security & Responsible AI
 
   - Never commit API keys, OAuth tokens, passwords, or private credentials.
   - Use n8n's credential manager for supported authentication methods.
@@ -230,7 +234,7 @@
   - Check summaries against original sources before relying on important claims.
   - Remember that AI summaries may omit context or contain errors.
 
-## ◈ 09 — Project Learnings
+## ◈ 10 — Project Learnings
 
   This project explores practical skills in:
   
@@ -242,7 +246,7 @@
   - Automating email delivery.
   - Debugging workflow executions and managing credentials.
 
-## ◈ 10 — Repository Structure
+## ◈ 11 — Repository Structure
 
   A suggested structure for publishing the project:
   
@@ -256,7 +260,7 @@
 
   Add only the files you actually include. Before committing the JSON export, remove sensitive information and verify that the workflow can     be imported safely.
 
-## ◈ 11 — About the Creator
+## ◈ 12 — About the Creator
 
 **Kalikowsik**
 
